@@ -20,8 +20,8 @@ jobs:
     name: Get latest Windows SDK
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/cache@v3
+    - uses: actions/checkout@v4
+    - uses: actions/cache@v4
       id: windows-sdk-cache
       with:
         path: WindowsSDK.7z
@@ -49,7 +49,9 @@ jobs:
         7z a WindowsSDK.7z WindowsSDK\
         dir
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
+        compression-level: 0
+        overwrite: true
         path: WindowsSDK.7z
         name: WindowsSDK
