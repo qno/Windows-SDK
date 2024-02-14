@@ -48,4 +48,8 @@ jobs:
         xcopy "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0" "WindowsSDK\Windows Kits\10\Lib" /E /I /H
         7z a WindowsSDK.7z WindowsSDK\
         dir
-  
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        path: WindowsSDK.7z
+        name: WindowsSDK
