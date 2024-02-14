@@ -16,13 +16,18 @@ env:
 
 jobs:
 
-  list-sdk:
-    name: List installed SDK
+  get-sdk:
+    name: Get latest Windows SDK
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-
-    - name: List SDKs
+    - uses: actions/cache@v3
+      id: windows-sdk-cache
+      with:
+        path: WindowsSDK.7z
+        key: WindowsSDK.7z
+    - name: Get Windows SDK
+      if: steps.windows-sdk-cache.outputs.cache-hit != 'true'
       run: |
         # https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\DIA SDK"
