@@ -33,16 +33,14 @@ jobs:
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC\"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC\14.38.33135"
-        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC\14.38.33135\debug_nonredist"
-        tree "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC\14.38.33135\debug_nonredist"
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC"
+        tree "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC"
         dir "C:\Program Files (x86)\Windows Kits\10"
         dir "C:\Program Files (x86)\Windows Kits\10\Include"
         dir "C:\Program Files (x86)\Windows Kits\10\Lib"
-        dir "C:\Program Files (x86)\Windows Kits\10\Redist"
-        tree "C:\Program Files (x86)\Windows Kits\10\Redist"
+        dir "C:\Program Files (x86)\Windows Kits\10\bin"
+        dir "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64\ucrt"
+        tree "C:\Program Files (x86)\Windows Kits\10\bin"
     - name: Get Windows SDK
       if: steps.windows-sdk-cache.outputs.cache-hit != 'true'
       run: |
