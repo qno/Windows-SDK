@@ -33,15 +33,11 @@ jobs:
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC"
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\"
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC\"
         dir "C:\Program Files (x86)\Windows Kits\10"
         dir "C:\Program Files (x86)\Windows Kits\10\Include"
         dir "C:\Program Files (x86)\Windows Kits\10\Lib"
-    - name: search debug libs
-      shell: bash
-      run: |
-        ls /
-        ls /c/
-        find /c -name "msvcp140*"
     - name: Get Windows SDK
       if: steps.windows-sdk-cache.outputs.cache-hit != 'true'
       run: |
