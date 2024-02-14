@@ -36,6 +36,10 @@ jobs:
         dir "C:\Program Files (x86)\Windows Kits\10"
         dir "C:\Program Files (x86)\Windows Kits\10\Include"
         dir "C:\Program Files (x86)\Windows Kits\10\Lib"
+    - name: search debug libs
+      shell: bash
+      run: |
+        find / -name "msvcp140*"
     - name: Get Windows SDK
       if: steps.windows-sdk-cache.outputs.cache-hit != 'true'
       run: |
