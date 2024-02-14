@@ -42,10 +42,10 @@ jobs:
         mkdir WindowsSDK\VC\Tools\MSVC
         mkdir "WindowsSDK\Windows Kits\10\Include"
         mkdir "WindowsSDK\Windows Kits\10\Lib"
-        xcopy "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\DIA SDK" "WindowsSDK\DIA SDK\" /E /I /H
-        xcopy "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.38.33130" "WindowsSDK\VC\Tools\MSVC\14.38.33130\" /E /I /H
-        xcopy "C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0" "WindowsSDK\Windows Kits\10\Include\10.0.22621.0\" /E /I /H
-        xcopy "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0" "WindowsSDK\Windows Kits\10\Lib\10.0.22621.0\" /E /I /H
+        xcopy "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\DIA SDK" "WindowsSDK\DIA SDK\" /E /I /H /Q
+        xcopy "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.38.33130" "WindowsSDK\VC\Tools\MSVC\14.38.33130\" /E /I /H /Q
+        xcopy "C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0" "WindowsSDK\Windows Kits\10\Include\10.0.22621.0\" /E /I /H /Q
+        xcopy "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0" "WindowsSDK\Windows Kits\10\Lib\10.0.22621.0\" /E /I /H /Q
         7z a WindowsSDK.7z WindowsSDK\
         dir
     - name: Upload artifact
