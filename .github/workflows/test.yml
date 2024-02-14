@@ -24,6 +24,7 @@ jobs:
 
     - name: List SDKs
       run: |
+        dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\DIA SDK"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC"
