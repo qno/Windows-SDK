@@ -34,23 +34,24 @@ jobs:
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC"
-        tree "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC"
         dir "C:\Program Files (x86)\Windows Kits\10"
         dir "C:\Program Files (x86)\Windows Kits\10\Include"
         dir "C:\Program Files (x86)\Windows Kits\10\Lib"
         dir "C:\Program Files (x86)\Windows Kits\10\bin"
-        dir "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64\ucrt"
-        tree "C:\Program Files (x86)\Windows Kits\10\bin"
     - name: Get Windows SDK
       if: steps.windows-sdk-cache.outputs.cache-hit != 'true'
       run: |
         mkdir WindowsSDK\VC\Tools\MSVC
+        mkdir WindowsSDK\VC\Redist\MSVC
         mkdir "WindowsSDK\Windows Kits\10\Include"
         mkdir "WindowsSDK\Windows Kits\10\Lib"
+        mkdir "WindowsSDK\Windows Kits\10\bin"
         xcopy "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\DIA SDK" "WindowsSDK\DIA SDK\" /E /I /H /Q
         xcopy "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.38.33130" "WindowsSDK\VC\Tools\MSVC\14.38.33130\" /E /I /H /Q
+        xcopy "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Redist\MSVC" "WindowsSDK\VC\Redist\MSVC\" /E /I /H /Q
         xcopy "C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0" "WindowsSDK\Windows Kits\10\Include\10.0.22621.0\" /E /I /H /Q
         xcopy "C:\Program Files (x86)\Windows Kits\10\Lib\10.0.22621.0" "WindowsSDK\Windows Kits\10\Lib\10.0.22621.0\" /E /I /H /Q
+        xcopy "C:\Program Files (x86)\Windows Kits\10\bin" "WindowsSDK\Windows Kits\10\bin\" /E /I /H /Q
         7z a WindowsSDK.7z WindowsSDK\
         dir
     - name: Upload artifact
