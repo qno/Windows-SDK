@@ -26,4 +26,5 @@ jobs:
       run: |
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC"
         dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\SDK"
+        tree "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
       
