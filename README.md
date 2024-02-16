@@ -9,3 +9,6 @@ The locations are:
 The used Win SDK version is `10.0.22621.0` and MSVC version is `14.38.33130`.
 
 More details can be found in the [Github workflow](https://github.com/qno/Windows-SDK/blob/main/.github/workflows/docker-publish.yml#L42).
+___
+### ***By using the packaged software in this container you are consented to accept the license at:***
+https://go.microsoft.com/fwlink/?LinkId=2086102
