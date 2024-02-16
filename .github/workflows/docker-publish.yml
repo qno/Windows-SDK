@@ -73,6 +73,10 @@ jobs:
         with:
           path: WindowsSDK.tar.7z
           key: WindowsSDK.tar.7z
+      - name: Check SDK
+        run: |
+          ls -la
+          find .
 
       - name: Install cosign
         if: github.event_name != 'pull_request'
