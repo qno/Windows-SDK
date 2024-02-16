@@ -18,8 +18,8 @@ env:
 
 jobs:
 
-  get-sdk:
-    name: Get latest Windows SDK
+  extract-sdk:
+    name: Extract Windows SDK
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
@@ -39,7 +39,7 @@ jobs:
         dir "C:\Program Files (x86)\Windows Kits\10"
         dir "C:\Program Files (x86)\Windows Kits\10\Include"
         dir "C:\Program Files (x86)\Windows Kits\10\Lib"
-    - name: Get Windows SDK
+    - name: Extract Windows SDK
       if: steps.windows-sdk-cache.outputs.cache-hit != 'true'
       run: |
         mkdir WindowsSDK\VC\Tools\MSVC
@@ -61,7 +61,7 @@ jobs:
         name: WindowsSDK
         
   build:
-    needs: get-sdk
+    needs: extract-sdk
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -76,10 +76,6 @@ jobs:
         path: WindowsSDK.tar.7z
         key: WindowsSDK.tar.7z
         enableCrossOsArchive: true
-    - name: Check SDK
-      run: |
-        ls -la
-        find .
 
     - name: Install cosign
       if: github.event_name != 'pull_request'
