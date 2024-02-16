@@ -9,11 +9,13 @@ on:
     branches: [main]
 jobs:
   info:
-    name: Free Space
+    name: OS Info
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Info
       run: |
+        env
         df -h
-      
+        pwd
+        du -sh `pwd`
