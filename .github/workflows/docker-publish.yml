@@ -61,6 +61,7 @@ jobs:
         name: WindowsSDK
         
   build:
+    name: Create Docker Image with Windows SDK 
     needs: extract-sdk
     runs-on: ubuntu-latest
     permissions:
