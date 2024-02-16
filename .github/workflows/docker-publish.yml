@@ -85,7 +85,7 @@ jobs:
 
     - name: Install cosign
       if: github.event_name != 'pull_request'
-      uses: sigstore/cosign-installer@v2
+      uses: sigstore/cosign-installer@v3
 
     - name: Setup Docker buildx
       uses: docker/setup-buildx-action@v3
@@ -126,7 +126,8 @@ jobs:
         cache-to: type=gha,mode=max
 
     - name: Sign the published Docker image
-      if: ${{ github.event_name != 'pull_request' && !github.event.repository.private }}
+      if: ${{ github.event_name != 'pull_request' }}
       env:
-        COSIGN_EXPERIMENTAL: "true"
-      run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
+        TAGS: ${{ steps.meta.outputs.tags }}
+        DIGEST: ${{ steps.build-and-push.outputs.digest }}
+      run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
