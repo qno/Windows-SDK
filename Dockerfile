@@ -10,9 +10,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends p7zip-full
 
 USER build
 WORKDIR /home/build/
+RUN pwd
 
 COPY WindowsSDK.tar.7z /home/build/
-RUN 7z x WindowsSDK.tar.7z && \
+RUN ls -lh && 7z x WindowsSDK.tar.7z && \
     tar -xf WindowsSDK.tar && \
     ls -lh && \
     rm WindowsSDK.* && \
