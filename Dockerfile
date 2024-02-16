@@ -9,6 +9,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends p7zip-full && \
     rm -rf /var/lib/apt/lists/*
 
+RUN df -h
+
 USER build
 WORKDIR /home/build/
 COPY --chown=build:build WindowsSDK.7z /home/build/
