@@ -69,6 +69,11 @@ jobs:
       id-token: write
 
     steps:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        tool-cache: true
+        docker-images: false
     - uses: actions/checkout@v4
     - uses: actions/cache@v4
       id: windows-sdk-cache
