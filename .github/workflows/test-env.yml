@@ -1,0 +1,19 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+    # Publish semver tags as releases.
+    tags: ['v*.*.*']
+  pull_request:
+    branches: [main]
+jobs:
+  info:
+    name: Free Space
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Info
+      run: |
+        df -h
+      
