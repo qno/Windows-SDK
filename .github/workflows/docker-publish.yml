@@ -33,8 +33,8 @@ jobs:
       shell: bash
       run: |
          ls /
-         ls /Program\ Files/Microsoft\ Visual\ Studio\2022\Enterprise\VC\Tools\MSVC
-         ls /Program\ Files\ \(x86\)/Windows\ Kits\10\Include
+         ls "/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC"
+         ls "/Program Files (x86)/Windows Kits/10/Include"
          #mvcver=(`ls / | sort -u -n -r`)
          #wsdkver=()
          #echo "MSVC_VERSION=${mvcver::-1}" >> $GITHUB_ENV
