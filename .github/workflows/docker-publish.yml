@@ -29,6 +29,16 @@ jobs:
         path: WindowsSDK.tar.7z
         key: WindowsSDK.tar.7z
         enableCrossOsArchive: true
+    - name: Get Latest Version Numbers
+      shell: bash
+      run: |
+         ls /
+         ls /c
+         ls /c/Program\ Files/Microsoft\ Visual\ Studio\2022\Enterprise\VC\Tools\MSVC
+         ls /c/Program\ Files\ \(x86\)/Windows\ Kits\10\Include
+         #mvcver=(`ls / | sort -u -n -r`)
+         #wsdkver=()
+         #echo "MSVC_VERSION=${mvcver::-1}" >> $GITHUB_ENV
     - name: List Windows SDKs
       run: |
         # https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md
