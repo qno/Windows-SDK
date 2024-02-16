@@ -24,4 +24,4 @@ RUN useradd --create-home --uid 1000 --gid 1000 --shell /bin/bash build
 
 USER build
 WORKDIR /home/build/
-COPY --from=builder /home/build/WindowsSDK /home/build/WindowsSDK
+COPY --from=builder --chown=build:build /home/build/WindowsSDK /home/build/WindowsSDK
