@@ -26,8 +26,8 @@ jobs:
     - uses: actions/cache@v4
       id: windows-sdk-cache
       with:
-        path: WindowsSDK.7z
-        key: WindowsSDK.7z
+        path: WindowsSDK.tar.7z
+        key: WindowsSDK.tar.7z
         enableCrossOsArchive: true
     - name: List Windows SDKs
       run: |
@@ -49,14 +49,15 @@ jobs:
         xcopy "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\${{ env.MSVC_VERSION }}" "WindowsSDK\VC\Tools\MSVC\${{ env.MSVC_VERSION }}\" /E /I /H /Q
         xcopy "C:\Program Files (x86)\Windows Kits\10\Include\${{ env.WINSDK_VERSION }}" "WindowsSDK\Windows Kits\10\Include\${{ env.WINSDK_VERSION }}\" /E /I /H /Q
         xcopy "C:\Program Files (x86)\Windows Kits\10\Lib\${{ env.WINSDK_VERSION }}" "WindowsSDK\Windows Kits\10\Lib\${{ env.WINSDK_VERSION }}\" /E /I /H /Q
-        7z a WindowsSDK.7z WindowsSDK
+        tar -cf WindowsSDK.tar WindowsSDK
+        7z a WindowsSDK.tar.7z WindowsSDK.tar
         dir
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         compression-level: 0
         overwrite: true
-        path: WindowsSDK.7z
+        path: WindowsSDK.tar.7z
         name: WindowsSDK
 
   build:
@@ -78,8 +79,8 @@ jobs:
     - uses: actions/cache@v4
       id: windows-sdk-cache
       with:
-        path: WindowsSDK.7z
-        key: WindowsSDK.7z
+        path: WindowsSDK.tar.7z
+        key: WindowsSDK.tar.7z
         enableCrossOsArchive: true
 
     - name: Install cosign
