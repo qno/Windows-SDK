@@ -28,6 +28,7 @@ jobs:
       with:
         path: WindowsSDK.tar.7z
         key: WindowsSDK.tar.7z
+        enableCrossOsArchive: true
     - name: List Windows SDKs
       run: |
         # https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md
@@ -74,6 +75,7 @@ jobs:
       with:
         path: WindowsSDK.tar.7z
         key: WindowsSDK.tar.7z
+        enableCrossOsArchive: true
     - name: Check SDK
       run: |
         ls -la
