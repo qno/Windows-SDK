@@ -30,8 +30,14 @@ jobs:
     - name: Get Latest Version Numbers
       shell: bash
       run: |
-         _msvcver=(`ls "/c/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC" | sort -u -n -r`)
-         _winsdkver=(`ls "/c/Program Files (x86)/Windows Kits/10/Include" | sort -u -n -r`)
+         _msvcdir="/c/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC"
+         ls $_msvcdir
+         _winsdkdir="/c/Program Files (x86)/Windows Kits/10/Include"
+         ls $_winsdkdir
+         _msvcver=(`ls $_msvcdir | sort -u -n -r`)
+         _winsdkver=(`ls $_winsdkdir | sort -u -n -r`)
+         echo "_msvcver '$_msvcver'"
+         echo "_winsdkver '$_winsdkver'"
          echo "MSVC_VERSION=$_msvcver" >> $GITHUB_ENV
          echo "WINSDK_VERSION=$_winsdkver" >> $GITHUB_ENV
     - name: List Windows SDKs
