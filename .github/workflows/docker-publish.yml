@@ -30,12 +30,10 @@ jobs:
     - name: Get Latest Version Numbers
       shell: bash
       run: |
-         _mvcver=(`ls "/c/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC" | sort -u -n -r`)
-         _wsdkver=(`ls "/c/Program Files (x86)/Windows Kits/10/Include" | sort -u -n -r`)
-         echo "_wsdkver '$_mvcver'"
-         echo "_wsdkver '$_wsdkver'"
-         echo "MSVC_VERSION=${_msvcver::-1}" >> $GITHUB_ENV
-         echo "WINSDK_VERSION=${_winsdkver::-1}" >> $GITHUB_ENV
+         _msvcver=(`ls "/c/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC" | sort -u -n -r`)
+         _winsdkver=(`ls "/c/Program Files (x86)/Windows Kits/10/Include" | sort -u -n -r`)
+         echo "MSVC_VERSION=$_msvcver" >> $GITHUB_ENV
+         echo "WINSDK_VERSION=$_winsdkver" >> $GITHUB_ENV
     - name: List Windows SDKs
       run: |
         # https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md
