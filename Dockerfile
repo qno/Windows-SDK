@@ -13,4 +13,4 @@ USER build
 WORKDIR /home/build/
 COPY --chown=build:build WindowsSDK.7z /home/build/
 RUN 7z x WindowsSDK.7z ; rm WindowsSDK.7z
-RUN ls -lh && ls -h WindowsSDK/
+RUN ls -lh && ls -lh WindowsSDK/
