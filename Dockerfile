@@ -10,5 +10,4 @@ RUN 7z x WindowsSDK.tar.7z ; rm WindowsSDK.tar.7z && \
     ls -lh && ls -lh WindowsSDK/
 
 FROM scratch
-COPY --from=builder --chown=build:build /home/build/WindowsSDK /home/build/WindowsSDK
 RUN --mount=type=bind,from=builder,source=/WindowsSDK,target=/mnt/WindowsSDK cp -rf /mnt/WindowsSDK .
