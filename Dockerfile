@@ -10,4 +10,4 @@ RUN 7z x WindowsSDK.tar.7z ; rm WindowsSDK.tar.7z && \
     ls -lh && ls -lh WindowsSDK/
 
 FROM scratch
-COPY --link --from=builder /WindowsSDK /
+COPY --link --from=builder /WindowsSDK /WindowsSDK
